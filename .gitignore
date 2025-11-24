@@ -1,0 +1,111 @@
+# ============================================
+# SENSITIVE FILES - DO NOT COMMIT TO GITHUB
+# ============================================
+
+# Environment Variables (Contains sensitive credentials)
+.env
+.env.local
+.env.*.local
+
+# Database Files (Contains user data)
+*.sqlite3
+db.sqlite3
+*.db
+
+# Admin/Setup Scripts with Hardcoded Credentials
+create_admin.py
+create_admin_user.py
+create_superuser.py
+make_admin.py
+
+# Test/Development Scripts (May contain sensitive data)
+test_email.py
+check_env.py
+setup_test_data.py
+
+# ============================================
+# PYTHON
+# ============================================
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+virtualenv/
+
+# ============================================
+# DJANGO
+# ============================================
+*.log
+local_settings.py
+*.pot
+
+# Static and Media Files
+/staticfiles/
+/media/
+static/css/output.css
+
+# Django Secret Key
+secret_key.txt
+
+# ============================================
+# FRONTEND
+# ============================================
+
+# TailwindCSS / Node
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+
+# ============================================
+# IDE & EDITORS
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# ============================================
+# OS SPECIFIC
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================
+# BACKUP & TEMPORARY FILES
+# ============================================
+*.bak
+*.tmp
+*.temp
+*~
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/

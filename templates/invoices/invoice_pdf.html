@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Invoice {{ invoice.invoice_number }}</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            color: #333;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .meta {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .status {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .columns {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .column {
+            width: 50%;
+            vertical-align: top;
+        }
+
+        .bill-to {
+            font-size: 14px;
+        }
+
+        .bill-to h3 {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        th {
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 5px;
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 10px 5px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .totals {
+            width: 100%;
+        }
+
+        .totals td {
+            border: none;
+            padding: 5px;
+        }
+
+        .total-row {
+            font-weight: bold;
+            font-size: 16px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="title">INVOICE #{{ invoice.invoice_number }}</div>
+        <div class="meta">
+            Date: {{ invoice.issue_date }}<br>
+            Due: {{ invoice.due_date }}<br>
+            Status: <span class="status">{{ invoice.status }}</span>
+        </div>
+    </div>
+
+    <table class="columns">
+        <tr>
+            <td class="column bill-to">
+                <h3>Bill To</h3>
+                <strong>{{ invoice.customer.customer_name }}</strong><br>
+                {{ invoice.customer.address }}<br>
+                {{ invoice.customer.city }}<br>
+                {{ invoice.customer.email }}
+            </td>
+            <td class="column text-right">
+                <!-- Company Info could go here -->
+                <h3>From</h3>
+                <strong>My Company</strong><br>
+                123 Business Rd<br>
+                City, Country
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th class="text-right">Qty</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in invoice.items.all() %}
+            <tr>
+                <td>
+                    {{ item.item.item_name }}<br>
+                    <small style="color: #999;">{{ item.description }}</small>
+                </td>
+                <td class="text-right">{{ item.quantity }}</td>
+                <td class="text-right">${{ item.price }}</td>
+                <td class="text-right">${{ item.total }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="totals">
+        <tr>
+            <td class="text-right">Subtotal:</td>
+            <td class="text-right" width="100">${{ invoice.subtotal }}</td>
+        </tr>
+        <tr>
+            <td class="text-right">Tax:</td>
+            <td class="text-right">${{ invoice.tax_total }}</td>
+        </tr>
+        <tr>
+            <td class="text-right">Discount:</td>
+            <td class="text-right">-${{ invoice.discount }}</td>
+        </tr>
+        <tr>
+            <td class="text-right total-row">Total:</td>
+            <td class="text-right total-row">${{ invoice.total_amount }}</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        {% if invoice.notes %}
+        <p><strong>Notes:</strong> {{ invoice.notes }}</p>
+        {% endif %}
+        {% if invoice.term %}
+        <p><strong>Terms:</strong> {{ invoice.term }}</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>

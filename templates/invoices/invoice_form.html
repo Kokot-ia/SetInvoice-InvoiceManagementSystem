@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}{% if form.instance.pk %}Edit Invoice{% else %}Create Invoice{% endif %} - Set Invoice{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+        <div class="px-4 py-5 sm:px-6">
+            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                {% if form.instance.pk %}Edit Invoice{% else %}Create New Invoice{% endif %}
+            </h3>
+        </div>
+        <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+            <form method="post" class="p-6 space-y-6">
+                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+                {% if form.non_field_errors() %}
+                <div class="text-red-500 text-sm">
+                    {% for error in form.non_field_errors() %}
+                    <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <!-- Invoice Details -->
+                <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+                    <div>
+                        <label for="{{ form.customer.id_for_label }}" class="block text-sm font-medium text-gray-700">{{
+                            form.customer.label }}</label>
+                        <div class="mt-1">{{ form.customer }}</div>
+                        {% if form.customer.errors %}<p class="text-red-500 text-xs mt-1">{{ form.customer.errors[0] }}
+                        </p>{% endif %}
+                    </div>
+                    <div>
+                        <label for="{{ form.status.id_for_label }}" class="block text-sm font-medium text-gray-700">{{
+                            form.status.label }}</label>
+                        <div class="mt-1">{{ form.status }}</div>
+                        {% if form.status.errors %}<p class="text-red-500 text-xs mt-1">{{ form.status.errors[0] }}</p>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <label for="{{ form.issue_date.id_for_label }}"
+                            class="block text-sm font-medium text-gray-700">{{ form.issue_date.label }}</label>
+                        <div class="mt-1">{{ form.issue_date }}</div>
+                        {% if form.issue_date.errors %}<p class="text-red-500 text-xs mt-1">{{ form.issue_date.errors[0]
+                            }}</p>{% endif %}
+                    </div>
+                    <div>
+                        <label for="{{ form.due_date.id_for_label }}" class="block text-sm font-medium text-gray-700">{{
+                            form.due_date.label }}</label>
+                        <div class="mt-1">{{ form.due_date }}</div>
+                        {% if form.due_date.errors %}<p class="text-red-500 text-xs mt-1">{{ form.due_date.errors[0] }}
+                        </p>{% endif %}
+                    </div>
+                </div>
+
+                <!-- Items -->
+                <div class="mt-6">
+                    <h4 class="text-lg font-medium text-gray-900 mb-4">Items</h4>
+                    {{ items.management_form }}
+                    <div id="form-container" data-empty-form='
+                        <div class="grid grid-cols-12 gap-4 items-end">
+                            <div class="col-span-3">
+                                <label class="block text-xs font-medium text-gray-500">Item</label>
+                                {{ items.empty_form.item }}
+                            </div>
+                            <div class="col-span-3">
+                                <label class="block text-xs font-medium text-gray-500">Description</label>
+                                {{ items.empty_form.description }}
+                            </div>
+                            <div class="col-span-2">
+                                <label class="block text-xs font-medium text-gray-500">Qty</label>
+                                {{ items.empty_form.quantity }}
+                            </div>
+                            <div class="col-span-2">
+                                <label class="block text-xs font-medium text-gray-500">Price</label>
+                                {{ items.empty_form.price }}
+                            </div>
+                            <div class="col-span-2">
+                                <label class="block text-xs font-medium text-gray-500">Tax %</label>
+                                {{ items.empty_form.tax_rate }}
+                            </div>
+                        </div>
+                    '>
+                        {% for form in items %}
+                        <div class="item-form border-b border-gray-200 pb-4 mb-4">
+                            {% if form.id %}{{ form.id }}{% endif %}
+                            <div class="grid grid-cols-12 gap-4 items-end">
+                                <div class="col-span-3">
+                                    <label class="block text-xs font-medium text-gray-500">Item</label>
+                                    {{ form.item }}
+                                </div>
+                                <div class="col-span-3">
+                                    <label class="block text-xs font-medium text-gray-500">Description</label>
+                                    {{ form.description }}
+                                </div>
+                                <div class="col-span-2">
+                                    <label class="block text-xs font-medium text-gray-500">Qty</label>
+                                    {{ form.quantity }}
+                                </div>
+                                <div class="col-span-2">
+                                    <label class="block text-xs font-medium text-gray-500">Price</label>
+                                    {{ form.price }}
+                                </div>
+                                <div class="col-span-2">
+                                    <label class="block text-xs font-medium text-gray-500">Tax %</label>
+                                    {{ form.tax_rate }}
+                                </div>
+                            </div>
+                            {% if form.errors %}
+                            <div class="text-red-500 text-xs mt-1">
+                                {{ form.errors }}
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button type="button" id="add-form"
+                        class="mt-2 inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2" style="--tw-ring-color: #05CB3A;">
+                        Add Item
+                    </button>
+                </div>
+
+                <!-- Notes & Terms -->
+                <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+                    <div>
+                        <label for="{{ form.notes.id_for_label }}" class="block text-sm font-medium text-gray-700">{{
+                            form.notes.label }}</label>
+                        <div class="mt-1">{{ form.notes }}</div>
+                    </div>
+                    <div>
+                        <label for="{{ form.term.id_for_label }}" class="block text-sm font-medium text-gray-700">{{
+                            form.term.label }}</label>
+                        <div class="mt-1">{{ form.term }}</div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end space-x-3">
+                    <a href="{{ url('invoice_list') }}"
+                        class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2" style="--tw-ring-color: #05CB3A;">
+                        Cancel
+                    </a>
+                    <button type="submit"
+                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white btn-primary focus:outline-none focus:ring-2 focus:ring-offset-2" style="--tw-ring-color: #05CB3A;">
+                        {% if form.instance.pk %}Update Invoice{% else %}Create Invoice{% endif %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="{{ static('js/forms.js') }}"></script>
+{% endblock %}

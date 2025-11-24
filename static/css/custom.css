@@ -1,0 +1,377 @@
+/* Invoice Management System - Clean & Simple Theme */
+/* Inspired by phpMyAdmin pmahomme theme */
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* Form Controls */
+.form-control,
+.form-select {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out;
+}
+
+.form-control:focus,
+.form-select:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+}
+
+.form-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* Buttons */
+button,
+.btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+button:hover,
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Cards/Panels */
+.card,
+.panel {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.card-header,
+.panel-heading {
+    padding: 12px 16px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    font-weight: 600;
+}
+
+.card-body,
+.panel-body {
+    padding: 16px;
+}
+
+/* Navigation */
+nav {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Links */
+a {
+    color: #4a90e2;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #357abd;
+    text-decoration: underline;
+}
+
+/* Alerts/Messages */
+.alert {
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 3px;
+}
+
+.badge-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.badge-warning {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.badge-info {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    gap: 4px;
+    margin-top: 16px;
+}
+
+.pagination a,
+.pagination span {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    border-radius: 3px;
+}
+
+.pagination a:hover {
+    background-color: #f8f9fa;
+    text-decoration: none;
+}
+
+.pagination .active {
+    background-color: #4a90e2;
+    color: #fff;
+    border-color: #4a90e2;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mt-1 {
+    margin-top: 4px;
+}
+
+.mt-2 {
+    margin-top: 8px;
+}
+
+.mt-3 {
+    margin-top: 12px;
+}
+
+.mt-4 {
+    margin-top: 16px;
+}
+
+.mb-1 {
+    margin-bottom: 4px;
+}
+
+.mb-2 {
+    margin-bottom: 8px;
+}
+
+.mb-3 {
+    margin-bottom: 12px;
+}
+
+.mb-4 {
+    margin-bottom: 16px;
+}
+
+.p-2 {
+    padding: 8px;
+}
+
+.p-3 {
+    padding: 12px;
+}
+
+.p-4 {
+    padding: 16px;
+}
+
+/* Primary Color Theme - Green (#05CB3A) */
+.sidebar-link {
+    color: #666;
+    transition: all 0.2s ease;
+}
+
+.sidebar-link:hover {
+    background-color: rgba(13, 181, 97, 0.1);
+    color: #05CB3A;
+}
+
+.quick-action-btn {
+    transition: all 0.2s ease;
+}
+
+.quick-action-btn:hover {
+    border-color: #05CB3A !important;
+    background-color: rgba(13, 181, 97, 0.1) !important;
+}
+
+.quick-action-btn:hover i {
+    color: #05CB3A !important;
+}
+
+/* Primary Button Styles */
+.btn-primary {
+    background-color: #05CB3A;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0a8f4d;
+    color: white;
+}
+
+/* Primary Text Color */
+.text-primary {
+    color: #05CB3A;
+}
+
+.text-primary:hover {
+    color: #0a8f4d;
+}
+
+/* Primary Background Light */
+.bg-primary-light {
+    background-color: rgba(13, 181, 97, 0.1);
+}
+
+/* Primary Border */
+.border-primary {
+    border-color: #05CB3A;
+}
+
+/* Global Color Override - Replace Indigo with Green */
+.bg-indigo-600,
+.bg-indigo-700,
+button.bg-indigo-600,
+button.bg-indigo-700,
+a.bg-indigo-600,
+a.bg-indigo-700 {
+    background-color: #05CB3A !important;
+}
+
+.bg-indigo-600:hover,
+.bg-indigo-700:hover,
+button.bg-indigo-600:hover,
+button.bg-indigo-700:hover,
+a.bg-indigo-600:hover,
+a.bg-indigo-700:hover {
+    background-color: #0a8f4d !important;
+}
+
+.bg-indigo-50 {
+    background-color: rgba(13, 181, 97, 0.1) !important;
+}
+
+.bg-indigo-100 {
+    background-color: rgba(13, 181, 97, 0.2) !important;
+}
+
+.text-indigo-600,
+.text-indigo-800,
+.text-indigo-900,
+a.text-indigo-600,
+a.text-indigo-800,
+a.text-indigo-900 {
+    color: #05CB3A !important;
+}
+
+.text-indigo-600:hover,
+.text-indigo-800:hover,
+.text-indigo-900:hover,
+a.text-indigo-600:hover,
+a.text-indigo-800:hover,
+a.text-indigo-900:hover {
+    color: #0a8f4d !important;
+}
+
+.border-indigo-500 {
+    border-color: #05CB3A !important;
+}
+
+.focus\:ring-indigo-500:focus {
+    --tw-ring-color: #05CB3A !important;
+}
+
+.hover\:border-indigo-500:hover {
+    border-color: #05CB3A !important;
+}
+
+/* Tutorial Modal Fixed Positioning */
+#tutorial-modal {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    top: auto !important;
+    left: auto !important;
+    transform: translate(0, 0) !important;
+}

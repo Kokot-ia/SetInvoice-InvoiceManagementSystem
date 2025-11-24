@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Category - Set Invoice{% endblock %}
+
+{% block content %}
+<div class="max-w-lg mx-auto">
+    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+        <div class="px-4 py-5 sm:px-6">
+            <h3 class="text-lg leading-6 font-medium text-gray-900">Delete Category</h3>
+        </div>
+        <div class="border-t border-gray-200 px-4 py-5 sm:p-6">
+            <p class="text-sm text-gray-500 mb-4">
+                Are you sure you want to delete the category <strong>{{ object.item_cat_name }}</strong>? This action
+                cannot be undone.
+            </p>
+
+            <form method="post">
+                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                <div class="flex justify-end space-x-3">
+                    <a href="{{ url('category_list') }}"
+                        class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Cancel
+                    </a>
+                    <button type="submit"
+                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                        Confirm Delete
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

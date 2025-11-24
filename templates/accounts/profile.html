@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}My Profile - Set Invoice{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto">
+    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+        <div class="px-4 py-5 sm:px-6 flex justify-between items-center">
+            <div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900">User Profile</h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details and role information.</p>
+            </div>
+            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium text-white" style="background-color: #05CB3A;">
+                {% if user.role %}
+                    {{ user.role.role_name }}
+                {% else %}
+                    No Role
+                {% endif %}
+            </span>
+        </div>
+        <div class="border-t border-gray-200">
+            <dl>
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">Email address</dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ user.email }}</dd>
+                </div>
+                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">Role</dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {% if user.role %}
+                            {{ user.role.role_name }}
+                        {% else %}
+                            <span class="text-gray-400">No role assigned</span>
+                        {% endif %}
+                    </dd>
+                </div>
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">Account Status</dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {% if user.status %}
+                        <span class="text-green-600 font-medium">Active</span>
+                        {% else %}
+                        <span class="text-red-600 font-medium">Inactive</span>
+                        {% endif %}
+                    </dd>
+                </div>
+                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">Date Joined</dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {% if user.created_at %}
+                            {{ user.created_at.strftime('%B %d, %Y') }}
+                        {% else %}
+                            <span class="text-gray-400">N/A</span>
+                        {% endif %}
+                    </dd>
+                </div>
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">Last Updated</dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {% if user.updated_at %}
+                            {{ user.updated_at.strftime('%B %d, %Y at %I:%M %p') }}
+                        {% else %}
+                            <span class="text-gray-400">N/A</span>
+                        {% endif %}
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>
+{% endblock %}
